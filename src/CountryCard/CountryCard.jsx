@@ -5,10 +5,11 @@ export default ({ countryName, flagUrl, population, capital }) => {
   return (
     <>
       <div className="countryCard">
-        <h2>{countryName}</h2>
         <figure>
           <img src={flagUrl} alt={`flag ${countryName}`} />
         </figure>
+        <h3>{countryName}</h3>
+
         <p>Population: {population}</p>
         <p>Capital: {capital}</p>
       </div>
