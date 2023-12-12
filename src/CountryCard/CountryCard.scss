@@ -1,0 +1,12 @@
+.countryCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgb(8, 8, 48);
+  border-radius: 1rem;
+  figure {
+    margin: 1rem 0rem;
+  }
+}
