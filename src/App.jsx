@@ -26,6 +26,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import CountryCard from "./CountryCard/CountryCard";
+import SearchBar from "./SearchBar/SearchBar";
 
 function App() {
   const testList = [
@@ -45,8 +46,11 @@ function App() {
 
   const [countries, setCountries] = useState([]);
 
+  const [searchValue, setSearchValue] = useState("");
+  console.log(searchValue);
+
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch(`https://restcountries.com/v3.1/all`)
       .then((response) => response.json())
       .then((obj) => {
         console.log(obj);
@@ -56,6 +60,18 @@ function App() {
 
   return (
     <>
+      <SearchBar
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        onSearch={() => {
+          fetch(`https://restcountries.com/v3.1/name/${searchValue}`)
+            .then((response) => response.json())
+            .then((obj) => {
+              console.log(obj);
+              setCountries(obj);
+            });
+        }}
+      />
       <div className="cardsWrapper">
         {countries.map((e, i) => {
           return (
