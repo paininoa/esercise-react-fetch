@@ -7,3 +7,9 @@
 img {
   max-width: 100%;
 }
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
